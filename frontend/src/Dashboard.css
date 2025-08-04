@@ -1,0 +1,9 @@
+.same-height-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.same-height-card .card-body {
+  flex: 1;
+}

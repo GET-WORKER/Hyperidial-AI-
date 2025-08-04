@@ -1,0 +1,74 @@
+html,
+body {
+  font-size: small;
+  min-height: 100vh !important;
+}
+.horizontal-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.horizontal-list li {
+  margin-right: 20px; /* Adjust spacing as needed */
+}
+
+.custom-navbar {
+  height: 50px; /* Adjust the height as needed */
+}
+
+.custom-navbar .navbar-brand img {
+  max-height: 30px; /* Adjust the logo size if needed */
+}
+
+.custom-navbar .navbar-nav .nav-link,
+.custom-navbar .navbar-nav .nav-dropdown,
+.custom-navbar .navbar-nav .nav-dropdown-item {
+  line-height: 50px; /* Ensure the text is vertically centered */
+}
+
+.custom-breadcrumb {
+  padding: 5px 10px; /* Adjust padding to reduce height */
+  font-size: 0.9rem; /* Adjust font size if needed */
+}
+
+.custom-breadcrumb .breadcrumb-item {
+  line-height: 1.5; /* Ensure the text is vertically centered */
+}
+.accordion-button:not(.collapsed) {
+  background-color: #e0e0e06f !important;
+}
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+@media (min-width: 992px) {
+  .contact-list {
+    height: calc(75vh - 80px);
+    overflow-y: auto; /* Adjust 80px to your navbar height */
+  }
+}
+
+iframe {
+  height: 92vh;
+  width: 100vw;
+}
+
+.iframediv {
+  overflow: hidden;
+}
+.drop-menu-h {
+  max-height: 15rem !important;
+  overflow-y: auto !important;
+}
+
+.card-title {
+  font-size: 1rem !important;
+}
+.h-max {
+  height: max-content !important;
+}
+.nav-tabs .nav-link {
+  border-radius: 0% !important;
+}
