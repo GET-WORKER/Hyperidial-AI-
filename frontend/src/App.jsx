@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route
           path="/login"
-          element={isAuthenticated ? <Navigate to="/" /> : <Dashboard />}
+          element={isAuthenticated ? <Navigate to="/" /> : <Login />}
         />
         {/* Private Routes */}
         {isAuthenticated && (
