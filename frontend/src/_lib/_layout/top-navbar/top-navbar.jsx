@@ -19,7 +19,7 @@ class TopNavbar extends Component {
       >
         <Navbar.Brand className="fs-6" as={Link} to="/">
           {/* <Image src="public/logo.jpg" className="brandlogo img img-responsive" /> */}
-          Macsoft - O & M
+          Hyperidial-AI-
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" onClick={toggleMenu} />
         <Navbar.Collapse id="navbar-nav">
