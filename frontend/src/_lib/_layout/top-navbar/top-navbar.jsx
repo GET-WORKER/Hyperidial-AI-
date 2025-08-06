@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import LogoutButton from "./logout-button";
-import { toggleMenu } from "./navSlice";
+/* import LogoutButton from "./logout-button";
+ */ import { toggleMenu } from "./navSlice";
 import { connect } from "react-redux";
 
 class TopNavbar extends Component {
@@ -74,9 +74,9 @@ class TopNavbar extends Component {
               </React.Fragment>
             ))}
           </Nav>
-          <Nav className="ms-auto logout-nav">
+          {/* <Nav className="ms-auto logout-nav">
             <LogoutButton />
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Navbar>
     );
