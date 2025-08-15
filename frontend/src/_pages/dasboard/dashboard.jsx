@@ -12,9 +12,9 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import "chart.js/auto";
 import "../../Dashboard.css";
 import StatusCards from "./_components/status-cards";
-import PieChartRow from "./_components/pie-chart-row";
+/* import PieChartRow from "./_components/pie-chart-row";
 import LineChartRow from "./_components/line-chart-row";
-import BarChartRow from "./_components/bar-chart-row";
+import BarChartRow from "./_components/bar-chart-row"; */
 import { fetchAll } from "./dashboard-slice";
 
 const Dashboard = () => {
@@ -71,14 +71,13 @@ const Dashboard = () => {
     <Container fluid className="mt-4 pb-5">
       <StatusCards />
 
-      <PieChartRow />
+      {/*  <PieChartRow />
 
       <BarChartRow />
 
-      <LineChartRow />
+      <LineChartRow /> */}
 
-      <Row className="mt-4">
-        {/* SLA Compliance */}
+      {/* <Row className="mt-4">
         <Col md={6}>
           <Card>
             <Card.Header>SLA Compliance</Card.Header>
@@ -90,7 +89,6 @@ const Dashboard = () => {
           </Card>
         </Col>
 
-        {/* Notifications & Alerts */}
         <Col md={6}>
           <Card>
             <Card.Header>Notifications & Alerts</Card.Header>
@@ -106,7 +104,6 @@ const Dashboard = () => {
       </Row>
 
       <Row className="mt-4">
-        {/* SLA Compliance Details */}
         <Col md={12}>
           <Card>
             <Card.Header>SLA Compliance Details</Card.Header>
@@ -133,7 +130,6 @@ const Dashboard = () => {
       </Row>
 
       <Row className="mt-4">
-        {/* Recent Tickets */}
         <Col md={6}>
           <Card>
             <Card.Header>Recent Tickets</Card.Header>
@@ -148,7 +144,6 @@ const Dashboard = () => {
           </Card>
         </Col>
 
-        {/* Recent Activity */}
         <Col md={6}>
           <Card>
             <Card.Header>Recent Activity</Card.Header>
@@ -164,7 +159,6 @@ const Dashboard = () => {
       </Row>
 
       <Row className="mt-4">
-        {/* Top Technicians */}
         <Col md={6}>
           <Card>
             <Card.Header>Top Technicians</Card.Header>
@@ -187,7 +181,7 @@ const Dashboard = () => {
           </Card>
         </Col>
 
-        {/* Pending Approvals */}
+       
         <Col md={6}>
           <Card>
             <Card.Header>Pending Approvals</Card.Header>
@@ -204,7 +198,7 @@ const Dashboard = () => {
             </ListGroup>
           </Card>
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 };

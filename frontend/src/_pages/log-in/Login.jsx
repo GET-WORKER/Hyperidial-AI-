@@ -20,40 +20,38 @@ function Login() {
     return <Navigate to="/" />;
   }
   return (
-    <>
-      <Container className="w-25  log-screen">
-        <h3 className=" text-center  mt-5">Login Page</h3>
-        <Form xs={12} onSubmit={handleSubmit(onsubmit)}>
-          <Form.Group>
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="email"
-              className="shadow-none"
-              {...register("email")}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              className="shadow-none"
-              {...register("password")}
-            />
-          </Form.Group>
-          <Col className="py-4   justify-content-between d-flex  m-0">
-            {/*  <p className="px-4  text-primary">New User?</p> */}
-            <NavLink className="no-underline" to={"/registerform"}>
-              New User?
-            </NavLink>
-            <Button className="btn btn-danger w-25" type="submit">
-              Login
-            </Button>
-          </Col>
-        </Form>
-      </Container>
-    </>
+    <Container className="w-25  log-screen mx-auto mt-10">
+      <h3 className="text-center  mt-5">Login Page</h3>
+      <Form xs={12} onSubmit={handleSubmit(onsubmit)}>
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="email"
+            className="shadow-none"
+            {...register("email")}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            className="shadow-none"
+            {...register("password")}
+          />
+        </Form.Group>
+        <Col className="py-4   justify-content-between d-flex  m-0">
+          {/*  <p className="px-4  text-primary">New User?</p> */}
+          <NavLink className="no-underline" to={"/registerform"}>
+            New User?
+          </NavLink>
+          <Button className="btn btn-danger w-25" type="submit">
+            Login
+          </Button>
+        </Col>
+      </Form>
+    </Container>
   );
 }
 export default Login;

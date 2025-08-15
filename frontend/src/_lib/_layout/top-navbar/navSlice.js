@@ -7,26 +7,26 @@ const menuSlice = createSlice({
     isOpen: false,
     menuItems: [
       {
-        name: "Tickets",
-        url: "tickets",
+        name: "Call History Lists",
+        url: "call-history-lists",
         isOpen: false,
         subItems: [
-          { name: "Tickets", url: "tickets" },
-          { name: "Spare Requests", url: "spare-requests" },
+          { name: "Tickets", url: "call-history-lists" },
+          { name: "Spare Requests", url: "call-history-lists" },
         ],
       },
       {
-        name: "Projects",
-        url: "projects",
+        name: "Client Status",
+        url: "client-status",
         isOpen: false,
         subItems: [
-          { name: "Projects", url: "projects" },
-          { name: "Teams", url: "teams" },
-          { name: "Service centers", url: "service-centers" },
+          { name: "Projects", url: "client-status" },
+          { name: "Teams", url: "client-status" },
+          { name: "Service centers", url: "client-status" },
         ],
       },
       {
-        name: "People",
+        name: "Reports",
         url: "customers",
         isOpen: false,
         subItems: [
@@ -37,7 +37,7 @@ const menuSlice = createSlice({
         ],
       },
       {
-        name: "Products",
+        name: "Employee Lists",
         url: "products",
         isOpen: false,
         subItems: [
@@ -46,7 +46,7 @@ const menuSlice = createSlice({
           { name: "Tags", url: "tags" },
         ],
       },
-      {
+      /* {
         name: "Reports",
         url: "",
         isOpen: false,
@@ -108,7 +108,7 @@ const menuSlice = createSlice({
             url: "/reports/top-technicians",
           },
         ],
-      },
+      }, */
     ],
   },
   reducers: {
