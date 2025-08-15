@@ -35,6 +35,15 @@ function StatusCards() {
     window.location.href = "/un-responded-clients";
   };
 
+  const handleNavigateGoogleSheets = () => {
+    window.location.href =
+      "https://docs.google.com/spreadsheets/d/1G2H3I4J5K6L7M8N9O0P1Q2R3S4T5U6V7W8X9Y0Z1A2B3C4D5E6F7G8H9I0J/edit#gid=0";
+  };
+
+  const handleDashboard2 = () => {
+    window.location.href = "/dashboard2";
+  };
+
   return (
     <Row className="mt-5">
       <Row>
@@ -91,7 +100,7 @@ function StatusCards() {
               <CardText className="fs-2 fw-semibold m-0 text-success">
                 {kpiData.firstResponseTime}
               </CardText>
-              <Button>Enter</Button>
+              <Button onClick={handleDashboard2}>Enter</Button>
             </CardBody>
           </Card>
         </Col>
@@ -121,7 +130,7 @@ function StatusCards() {
                   ? `${dashboard?.openTickets?.openTickets}`
                   : "N/A"}
               </CardText>
-              <Button>Enter</Button>
+              <Button onClick={handleNavigateGoogleSheets}>Enter</Button>
             </CardBody>
           </Card>
         </Col>

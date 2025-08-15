@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AnsweredStatus from "./_pages/current status/current-status";
 import RespondedClients from "./_pages/responded-clients/responded-clients";
 import UnRespondedClients from "./_pages/un-responded-clients/un-responded-clients";
+import Dashboard2 from "./_pages/dashboard2/dashboard2";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -27,6 +28,7 @@ function App() {
           <Route element={<RootLayout />}>
             <Route path="/current-status" element={<AnsweredStatus />} />
             <Route path="/responded-clients" element={<RespondedClients />} />
+            <Route path="/dashboard2" element={<Dashboard2 />} />
             <Route
               path="/un-responded-clients"
               element={<UnRespondedClients />}
