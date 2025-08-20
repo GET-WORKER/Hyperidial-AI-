@@ -1,4 +1,12 @@
-import { Card, CardBody, CardText, CardTitle, Col, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardText,
+  CardTitle,
+  Col,
+  Row,
+} from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function StatusCards() {
@@ -15,119 +23,118 @@ function StatusCards() {
 
   const { dashboard } = useSelector((state) => state.dashboard);
 
+  const handleNavigateCurrentStatus = () => {
+    window.location.href = "/current-status";
+  };
+
+  const handleNavigateRespondedClients = () => {
+    window.location.href = "/responded-clients";
+  };
+
+  const handleNavigateUnRespondedClients = () => {
+    window.location.href = "/un-responded-clients";
+  };
+
+  const handleNavigateGoogleSheets = () => {
+    window.location.href =
+      "https://docs.google.com/spreadsheets/d/1G2H3I4J5K6L7M8N9O0P1Q2R3S4T5U6V7W8X9Y0Z1A2B3C4D5E6F7G8H9I0J/edit#gid=0";
+  };
+
+  const handleDashboard2 = () => {
+    window.location.href = "/dashboard2";
+  };
+
   return (
-    <Row className="mt-4 ">
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Tickets Resolved </CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-success">
-              {dashboard?.ticketsResolvedToday?.ticketsResolvedToday
-                ? `${dashboard?.ticketsResolvedToday?.ticketsResolvedToday}`
-                : "N/A"}
-            </CardText>
-            <CardText>Today</CardText>
-          </CardBody>
-        </Card>
-      </Col>
-      {/* Average Resolution Time */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Avg Resolution</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-success">
-              {dashboard?.avgResolutionTime?.avgResolutionTime
-                ? `${dashboard?.avgResolutionTime?.avgResolutionTime}`
-                : "N/A"}
-            </CardText>
-            <CardText>Time</CardText>
-          </CardBody>
-        </Card>
-      </Col>
+    <Row className="mt-5">
+      <Row>
+        <Col xs={12} sm={6} md={4} lg={4} className="mb-4">
+          <Card className="text-center h-100" style={{ minHeight: "220px" }}>
+            <CardBody className="d-flex flex-column justify-content-between">
+              <CardTitle className="text-uppercase">Current Status </CardTitle>
+              <CardText className="fs-2 fw-semibold m-0 text-success">
+                {dashboard?.ticketsResolvedToday?.ticketsResolvedToday
+                  ? `${dashboard?.ticketsResolvedToday?.ticketsResolvedToday}`
+                  : "N/A"}
+              </CardText>
+              <Button onClick={handleNavigateCurrentStatus}>Enter</Button>
+            </CardBody>
+          </Card>
+        </Col>
+        {/* Average Resolution Time */}
+        <Col xs={8} sm={6} md={4} lg={4} className="mb-4">
+          <Card className="text-center h-100" style={{ minHeight: "220px" }}>
+            <CardBody className="d-flex flex-column justify-content-between">
+              <CardTitle className="text-uppercase">Reports</CardTitle>
+              <CardText className="fs-2 fw-semibold m-0 text-success">
+                {dashboard?.avgResolutionTime?.avgResolutionTime
+                  ? `${dashboard?.avgResolutionTime?.avgResolutionTime}`
+                  : "N/A"}
+              </CardText>
+              <Button>Enter</Button>
+            </CardBody>
+          </Card>
+        </Col>
 
-      {/* Customer Satisfaction */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Satisfaction</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-success">
-              {kpiData.customerSatisfaction} / 5
-            </CardText>
-            <CardText>Customer Rating</CardText>
-          </CardBody>
-        </Card>
-      </Col>
+        {/* Customer Satisfaction */}
+        <Col xs={12} sm={6} md={4} lg={4} className="mb-4">
+          <Card className="text-center h-100" style={{ minHeight: "220px" }}>
+            <CardBody className="d-flex flex-column justify-content-between">
+              <CardTitle className="text-uppercase">
+                Responded Clients
+              </CardTitle>
+              <CardText className="fs-2 fw-semibold m-0 text-success">
+                {kpiData.customerSatisfaction} / 5
+              </CardText>
+              <Button onClick={handleNavigateRespondedClients}>Enter</Button>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
 
-      {/* First Response Time */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Response Time</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-success">
-              {kpiData.firstResponseTime}
-            </CardText>
-            <CardText>First Response Time</CardText>
-          </CardBody>
-        </Card>
-      </Col>
+      <Row>
+        {/* First Response Time */}
+        <Col xs={12} sm={6} md={4} lg={4} className="mb-4">
+          <Card className="text-center h-100" style={{ minHeight: "220px" }}>
+            <CardBody className="d-flex flex-column justify-content-between">
+              <CardTitle className="text-uppercase">Dash Board</CardTitle>
+              <CardText className="fs-2 fw-semibold m-0 text-success">
+                {kpiData.firstResponseTime}
+              </CardText>
+              <Button onClick={handleDashboard2}>Enter</Button>
+            </CardBody>
+          </Card>
+        </Col>
 
-      {/* SLA Compliance Rate */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">SLA Compliance</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-success">
-              {kpiData.slaComplianceRate}%
-            </CardText>
-            <CardText>Compliance Rate</CardText>
-          </CardBody>
-        </Card>
-      </Col>
+        {/* SLA Compliance Rate */}
+        <Col xs={12} sm={6} md={4} lg={4} className="mb-4">
+          <Card className="text-center h-100" style={{ minHeight: "220px" }}>
+            <CardBody className="d-flex flex-column justify-content-between">
+              <CardTitle className="text-uppercase">
+                Un-Responded Clients &/ Bad Deffors
+              </CardTitle>
+              <CardText className="fs-2 fw-semibold m-0 text-success">
+                {kpiData.slaComplianceRate}%
+              </CardText>
+              <Button onClick={handleNavigateUnRespondedClients}>Enter</Button>
+            </CardBody>
+          </Card>
+        </Col>
 
-      {/* Open Tickets */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Open Tickets</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-danger">
-              {dashboard?.openTickets?.openTickets
-                ? `${dashboard?.openTickets?.openTickets}`
-                : "N/A"}
-            </CardText>
-            <CardText>Tickets</CardText>
-          </CardBody>
-        </Card>
-      </Col>
-
-      {/* Pending Approvals */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Pending</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-warning">
-              {dashboard?.pendingApprovalsDetails?.length
-                ? `${dashboard?.pendingApprovalsDetails?.length}`
-                : "N/A"}
-            </CardText>
-            <CardText>Approvals</CardText>
-          </CardBody>
-        </Card>
-      </Col>
-
-      {/* Escalated Tickets */}
-      <Col>
-        <Card className="text-center h-100">
-          <CardBody className="d-flex flex-column justify-content-between">
-            <CardTitle className="text-uppercase">Escalated Tickets</CardTitle>
-            <CardText className="fs-3 fw-semibold m-0 text-danger">
-              {dashboard?.escalatedTickets?.escalatedTickets?.count
-                ? `${dashboard?.escalatedTickets?.escalatedTickets?.count}`
-                : "N/A"}{" "}
-            </CardText>
-            <CardText>Tickets</CardText>
-          </CardBody>
-        </Card>
-      </Col>
+        {/* Open Tickets */}
+        <Col xs={12} sm={6} md={4} lg={4} className="mb-4">
+          <Card className="text-center h-100" style={{ minHeight: "220px" }}>
+            <CardBody className="d-flex flex-column justify-content-between">
+              <CardTitle className="text-uppercase">Google Sheets</CardTitle>
+              <CardText className="fs-2 fw-semibold m-0 text-danger">
+                {dashboard?.openTickets?.openTickets
+                  ? `${dashboard?.openTickets?.openTickets}`
+                  : "N/A"}
+              </CardText>
+              <Button onClick={handleNavigateGoogleSheets}>Enter</Button>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
     </Row>
   );
 }

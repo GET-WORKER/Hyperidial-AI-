@@ -11,13 +11,13 @@ import {
 import { connect, useDispatch, useSelector } from "react-redux";
 import "chart.js/auto";
 import "../../Dashboard.css";
-import StatusCards from "./_components/status-cards";
-/* import PieChartRow from "./_components/pie-chart-row";
-import LineChartRow from "./_components/line-chart-row";
-import BarChartRow from "./_components/bar-chart-row"; */
-import { fetchAll } from "./dashboard-slice";
+import StatusCards from "../dasboard/_components/status-cards";
+import PieChartRow from "../dasboard/_components/pie-chart-row";
+import LineChartRow from "../dasboard/_components/line-chart-row";
+import BarChartRow from "../dasboard/_components/bar-chart-row";
+import { fetchAll } from "../dasboard/dashboard-slice";
 
-const Dashboard = () => {
+const Dashboard2 = () => {
   const dispatch = useDispatch();
 
   const { dashboard } = useSelector((state) => state.dashboard);
@@ -69,15 +69,10 @@ const Dashboard = () => {
 
   return (
     <Container fluid className="mt-4 pb-5">
-      <StatusCards />
-
-      {/*  <PieChartRow />
-
+      <PieChartRow />
       <BarChartRow />
-
-      <LineChartRow /> */}
-
-      {/* <Row className="mt-4">
+      <LineChartRow />
+      <Row className="mt-4">
         <Col md={6}>
           <Card>
             <Card.Header>SLA Compliance</Card.Header>
@@ -102,7 +97,6 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-
       <Row className="mt-4">
         <Col md={12}>
           <Card>
@@ -128,7 +122,6 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-
       <Row className="mt-4">
         <Col md={6}>
           <Card>
@@ -157,7 +150,6 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-
       <Row className="mt-4">
         <Col md={6}>
           <Card>
@@ -181,7 +173,6 @@ const Dashboard = () => {
           </Card>
         </Col>
 
-       
         <Col md={6}>
           <Card>
             <Card.Header>Pending Approvals</Card.Header>
@@ -198,9 +189,9 @@ const Dashboard = () => {
             </ListGroup>
           </Card>
         </Col>
-      </Row> */}
+      </Row>
     </Container>
   );
 };
 
-export default Dashboard;
+export default Dashboard2;
