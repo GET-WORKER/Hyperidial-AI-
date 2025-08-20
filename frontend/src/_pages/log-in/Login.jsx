@@ -1,57 +1,107 @@
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { Navigate, NavLink } from "react-router-dom";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { login } from "./authSlice";
-import { Container } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
-function Login() {
+
+const Login = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const onsubmit = (data) => {
-    console.log(data, "data");
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
+
+  const onSubmit = (data) => {
     dispatch(login(data));
   };
-  const { isAuthenticated } = useSelector((state) => state.auth);
-  if (isAuthenticated) {
-    return <Navigate to="/" />;
-  }
+
+  if (isAuthenticated) return <Navigate to="/" replace />;
+
   return (
-    <Container className="w-25  log-screen mx-auto mt-10">
-      <h3 className="text-center  mt-5">Login Page</h3>
-      <Form xs={12} onSubmit={handleSubmit(onsubmit)}>
-        <Form.Group>
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="email"
-            className="shadow-none"
-            {...register("email")}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            className="shadow-none"
-            {...register("password")}
-          />
-        </Form.Group>
-        <Col className="py-4   justify-content-between d-flex  m-0">
-          {/*  <p className="px-4  text-primary">New User?</p> */}
-          <NavLink className="no-underline" to={"/registerform"}>
-            New User?
-          </NavLink>
-          <Button className="btn btn-danger w-25" type="submit">
-            Login
-          </Button>
-        </Col>
-      </Form>
-    </Container>
+    <div
+      style={{
+        backgroundImage: `url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")`, // 🌌 Replace with AI-style bg
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* Overlay for darkening effect */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0,0,0,0.5)",
+          zIndex: 0,
+        }}
+      ></div>
+
+      <Container className="position-relative z-1">
+        <Row className="justify-content-center">
+          <Col xs={12} md={6} lg={4}>
+            <div className="p-4 border rounded-3 shadow-lg bg-white bg-opacity-90">
+              <h3 className="text-center mb-4 fw-bold">Login</h3>
+
+              <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Enter email"
+                    isInvalid={!!errors.email}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Enter a valid email address",
+                      },
+                    })}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email?.message}
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group className="mb-4">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Enter password"
+                    isInvalid={!!errors.password}
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters",
+                      },
+                    })}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password?.message}
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <div className="d-flex justify-content-between align-items-center">
+                  <NavLink to="/registerform" className="text-decoration-none">
+                    New User?
+                  </NavLink>
+                  <Button variant="danger" type="submit">
+                    Login
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
-}
+};
+
 export default Login;
