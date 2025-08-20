@@ -6,6 +6,7 @@ import {
 import axios from "axios";
 import { Toast } from "react-bootstrap";
 import { Await } from "react-router-dom";
+// Removed invalid import statement
 
 const userToken = sessionStorage.getItem("userToken");
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   error: null,
 };
 
+/* No code needed here. The $PLACEHOLDER$ can be removed. */
 const SERVER_URL = import.meta.env.VITE_API_HOST + "/auth";
 
 /* console.log(userToken, "userToken"); */
