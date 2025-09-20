@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { makeCall } = require("../twilioroutes/callfun");
-const numbers = require("./numbers.json");
+const { makeCall } = require("../Services/callfun");
+const numbers = require("../Services/numbers.json");
 
 // Route to call all numbers in JSON
 router.post("/call", async (req, res) => {

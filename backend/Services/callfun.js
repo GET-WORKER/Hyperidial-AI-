@@ -1,5 +1,6 @@
 const twilio = require("twilio");
-const numbers = require("./numbers.json"); // adjust path if needed
+const numbers = require("./numbers.json");
+
 const client = twilio(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
