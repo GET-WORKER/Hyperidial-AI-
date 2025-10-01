@@ -1,3 +1,5 @@
+
+/*
 import fs from "fs";
 import path from "path";
 import openai from "../config/openaiconfig.js"; // ✅ uses your config
@@ -39,3 +41,4 @@ export async function transcribeStream(audioStream) {
     throw error;
   }
 }
+*/

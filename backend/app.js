@@ -4,8 +4,10 @@ require("dotenv").config();
 
 app.use(express.json());
 
+// ✅ Correct import
+const twilioRoutes = require("./Routes/twilioCallRoutes");
 
-const twilioRoutes = require("./Routes/twilioCallRoutes")
+// ✅ Use same variable name here
 app.use("/twilio", twilioRoutes);
 
 const PORT = process.env.PORT || 3000;
